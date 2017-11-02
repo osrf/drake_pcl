@@ -8,7 +8,7 @@ set(drake_DIR "/opt/drake/lib/cmake/drake")
 # Find the xenial Eigen3 (3.2.92) - /usr/lib/cmake/eigen3/Eigen3Config.cmake and UseEigen3.cmake
 # find_package(Eigen3 REQUIRED)                                                         # EIGEN3 does not work
 # message(STATUS "LOOKING FOR...............................Eigen3")
-# message(STATUS "EIGEN FOUND...............................${Eigen3_FOUND}")           # Eigen3 and EIGEN3 both work 
+# message(STATUS "EIGEN FOUND...............................${Eigen3_FOUND}")           # Eigen3 and EIGEN3 both work
 # message(STATUS "EIGEN VERSION.............................${EIGEN3_VERSION_STRING}")  # Eigen3 does not work, no EIGEN3_VERSION either
 
 message(STATUS "LOOKING FOR...............................DRAKE")
@@ -25,7 +25,8 @@ message(STATUS "LOOKING FOR...............................PCL")
 # at the find_eigen macro \in /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake
 # It is intended that EIGEN_ROOT helps but this fails as it's overridden by pkg_config logic
 # which result in it finding the system version and it inserts that path in PCL_INCLUDE_DIRS
-set(EIGEN_ROOT "${drake_ROOT}/include/eigen3") 
+set(EIGEN_FOUND 1)
+set(EIGEN_INCLUDE_DIRS "${drake_ROOT}/include/eigen3")
 find_package(PCL 1.7 REQUIRED)
 message(STATUS "PCL FOUND.................................${PCL_FOUND}")
 message(STATUS "PCL DIRS..................................${PCL_INCLUDE_DIRS}")
